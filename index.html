@@ -28,8 +28,36 @@
     <div class="main-container container-fluid">
         <div class="row">
             <!-- search for a city container-->
+            <div class="col-md-3 searchCityContainer">
+                <div class="card-body">
+                    <div>
+                        <h3 class="text-center mb-4">Search for a City</h3>
+                        <form class="form-inline">
+                            <input type="text" class="form-control mr-sm-2" id="cityInput" placeholder="City Name">
+                            <button type="submit" class="btn btn-primary search-button my-2 ml-2" id="searchBtn"><i class="fas fa-search-location"></i></button>
+                        </form>
+                        <div class="cityList"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+    </div>    
+    <!-- weather container-->
+    <div class="col-md-3 container-left-columns">
+        <!-- current city container-->
+        <div class="row">
+            <div class="col-md-12 currentCityContainer">
+                <div class="card-body">
+                    <div class="currentCity"></div>
+                    <p class="currentDate"></p>
+                    <p class="currentIcon"></p>
+                    <p class="currentTemp"></p>
+                    <p class="currentHumidity"></p>
+                    <p class="currentWindSpeed"></p>
+                    <p class="currentUVIndex"></p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -38,7 +66,7 @@
     <!-- LINKING BOOTSTRAP JS JQUERY -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
-    </div>
+
 </body>
 
 </html>
