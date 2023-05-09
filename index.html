@@ -24,11 +24,12 @@
         <span class="navbar-brand mb-0 h1 text-light">Weather Dashboard</span>
     </nav>
 
+
     <!-- main container-->
     <div class="main-container container-fluid">
         <div class="row">
             <!-- search for a city container-->
-            <div class="col-md-3 searchCityContainer">
+            <div class="col-md-4 searchCityContainer">
                 <div class="card-body">
                     <div>
                         <h3 class="text-center mb-4">Search for a City</h3>
@@ -41,7 +42,9 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    
     <!-- weather container-->
     <div class="col-md-3 container-left-columns">
         <!-- current city container-->
@@ -60,6 +63,66 @@
         </div>
     </div>
 
+
+    <!-- 5 day forecast container-->
+        <div class="row gutters">
+            <div class="col-md-12 fiveDayForecastContainer">
+                <div class="card-body">
+                    <div class="fiveDayForecast"></div>
+                    <h2>5-Day Weather Forecast</h2>
+                </div>
+            </div>
+            <!-- day 1 -->
+            <div class="dayOneContainer">
+                <div class="card-body">
+                    <div class="dayOne"></div>
+                    <p class="dayOneDate"></p>
+                    <p class="dayOneIcon"></p>
+                    <p class="dayOneTemp"></p>
+                    <p class="dayOneHumidity"></p>
+                </div>
+            </div>
+            <!-- day 2 -->
+            <div class="dayTwoContainer">
+                <div class="card-body">
+                    <div class="dayTwo"></div>
+                    <p class="dayTwoDate"></p>
+                    <p class="dayTwoIcon"></p>
+                    <p class="dayTwoTemp"></p>
+                    <p class="dayTwoHumidity"></p>
+                </div>
+            </div>
+            <!-- day 3 -->
+            <div class="dayThreeContainer">
+                <div class="card-body">
+                    <div class="dayThree"></div>
+                    <p class="dayThreeDate"></p>
+                    <p class="dayThreeIcon"></p>
+                    <p class="dayThreeTemp"></p>
+                    <p class="dayThreeHumidity"></p>
+                </div>
+            </div>
+            <!-- day 4 -->
+            <div class="dayFourContainer">
+                <div class="card-body">
+                    <div class="dayFourContainer"></div>
+                    <p class="dayFourDate"></p>
+                    <p class="dayFourIcon"></p>
+                    <p class="dayFourTemp"></p>
+                    <p class="dayFourHumidity"></p>
+                </div>
+            </div>  
+            <!-- day 5 -->
+            <div class="dayFiveContainer">
+                <div class="card-body">
+                    <div class="dayFive"></div>
+                    <p class="dayFiveDate"></p>
+                    <p class="dayFiveIcon"></p>
+                    <p class="dayFiveTemp"></p>
+                    <p class="dayFiveHumidity"></p>
+                </div> 
+            </div>    
+        </div>    
 
 
 
