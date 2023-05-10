@@ -26,10 +26,22 @@
 
 
     <!-- main container-->
-    <div class="main-container container-fluid">
-        <div class="row">
+    <div class="main-container">
+        <!-- search for a city container-->
+    <div class="col-md-4 searchCityContainer">
+        <div class="card-body">
+            <h3 class="text-center mb-4">Search for a City</h3>
+            <form class="form-inline">
+                <input type="text" class="form-control mr-sm-2" id="cityInput" placeholder="City Name">
+                <button type="submit" class="btn btn-primary search-button my-2 ml-2" id="searchBtn"><i
+                        class="fas fa-search-location"></i></button>
+            </form>
+            <div class="cityList"></div>
+        </div>
+    </div>
+        <div class="col-md-8">
             <!-- weather container -->
-            <div class="col-md-9 pt-4 order-md-2 container-left-columns">
+            <div class="order-md-2 container-left-columns">
                 <!-- current city container-->
                 <div id="currentWeather" class="col-9 pb-4 pt-4">
                     <div class="row pb-3 mr-2 ml-2">
@@ -44,11 +56,7 @@
                     <p class="currentUVIndex"></p>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <!-- 5 day forecast container-->
+            <!-- 5 day forecast container-->
     <div class="row gutters">
         <div class="col-md-12 fiveDayForecastContainer">
             <div class="card-body">
@@ -56,70 +64,63 @@
                 <div class="fiveDayForecast"></div>
             </div>
         </div>
+        <div class="forecast">
         <!-- day 1 -->
-        <div class="col-md-2 dayOneContainer">
+        <div class="dayOneContainer">
             <div class="card-body">
                 <div class="dayOne"></div>
-                <p class="dayOneDate"></p>
-                <p class="dayOneIcon"></p>
-                <p class="dayOneTemp"></p>
-                <p class="dayOneHumidity"></p>
+                <p class="date1"></p>
+                <p class="icon1"></p>
+                <p class="temp1"></p>
+                <p class="humidity1"></p>
             </div>
         </div>
         <!-- day 2 -->
-        <div class="col-md-2 dayTwoContainer">
+        <div class="dayTwoContainer">
             <div class="card-body">
                 <div class="dayTwo"></div>
-                <p class="dayTwoDate"></p>
-                <p class="dayTwoIcon"></p>
-                <p class="dayTwoTemp"></p>
-                <p class="dayTwoHumidity"></p>
+                <p class="date2"></p>
+                <p class="icon2"></p>
+                <p class="temp2"></p>
+                <p class="humidity2"></p>
             </div>
         </div>
         <!-- day 3 -->
-        <div class="col-md-2 dayThreeContainer">
+        <div class="dayThreeContainer">
             <div class="card-body">
                 <div class="dayThree"></div>
-                <p class="dayThreeDate"></p>
-                <p class="dayThreeIcon"></p>
-                <p class="dayThreeTemp"></p>
-                <p class="dayThreeHumidity"></p>
+                <p class="date3"></p>
+                <p class="icon3"></p>
+                <p class="temp3"></p>
+                <p class="humdity3"></p>
             </div>
         </div>
         <!-- day 4 -->
-        <div class="col-md-2 dayFourContainer">
+        <div class="dayFourContainer">
             <div class="card-body">
-                <div class="dayFourContainer"></div>
-                <p class="dayFourDate"></p>
-                <p class="dayFourIcon"></p>
-                <p class="dayFourTemp"></p>
-                <p class="dayFourHumidity"></p>
+                <div class="dayFour"></div>
+                <p class="date4"></p>
+                <p class="icon4"></p>
+                <p class="temp4"></p>
+                <p class="humidity4"></p>
             </div>
         </div>
         <!-- day 5 -->
-        <div class="col-md-2 dayFiveContainer">
+        <div class="dayFiveContainer">
             <div class="card-body">
                 <div class="dayFive"></div>
-                <p class="dayFiveDate"></p>
-                <p class="dayFiveIcon"></p>
-                <p class="dayFiveTemp"></p>
-                <p class="dayFiveHumidity"></p>
+                <p class="date5"></p>
+                <p class="icon5"></p>
+                <p class="temp5"></p>
+                <p class="humidity5"></p>
             </div>
         </div>
     </div>
-
-    <!-- search for a city container-->
-    <div class="col-md-4 searchCityContainer">
-        <div class="card-body">
-            <h3 class="text-center mb-4">Search for a City</h3>
-            <form class="form-inline">
-                <input type="text" class="form-control mr-sm-2" id="cityInput" placeholder="City Name">
-                <button type="submit" class="btn btn-primary search-button my-2 ml-2" id="searchBtn"><i
-                        class="fas fa-search-location"></i></button>
-            </form>
-            <div class="cityList"></div>
+    </div>
         </div>
     </div>
+
+
 
 
 

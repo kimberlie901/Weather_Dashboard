@@ -8,10 +8,16 @@
     align-items: center;
     background-color: pink;
     height: 125px;
+    width: 100%;
+}
+
+.bg-dark {
+    background-color: pink;
 }
 
 .main-container {
   padding-bottom: 20px;
+  display: flex;
 }
 
 .searchCityContainer h3 {
@@ -24,31 +30,19 @@
     color: pink;
     text-align: center;
     height: 800px;
-    position: relative;
-    top: -252px;
 }
 
 .search-button {
     font-size: 1rem;
     height: 38px;
     width: 38px;
-    margin-left: -1px;
-    margin-top: 0;
 }
 
-.gutters {
-    position: relative;
-    left: 45%;
-    margin-right: -15px;
-    margin-left: -15px;
-}
 
 .container-left-columns {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    left: 10%;
 }
 
 .currentCityContiner {
@@ -57,26 +51,16 @@
     background-color: black;
 }
 
-.fiveDayForecastContainer {
-    margin-top: 20px;
-}
-
 .dayOneContainer, 
 .dayTwoContainer,
 .dayThreeContainer,
 .dayFourContainer,
 .dayFiveContainer {
     background-color: black;
-    color: pink;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
+    width: 15%
 }
 
-.dayOneContainer,
-.dayTwoContainer,
-.dayThreeContainer,
-.dayFourContainer,
-.dayFiveContainer {
-    height: 100%;
+.forecast {
+    display: flex;
+    justify-content: space-between;
 }
