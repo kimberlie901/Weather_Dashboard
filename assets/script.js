@@ -30,23 +30,28 @@ async function getWeather(city) {
 
 
         // display current weather conditions in the DOM 
-        const currentCity = document.querySelector("#current-city");
-        const currentDate = document.querySelector("#current-date");
-        const currentIcon = document.querySelector("#current-icon");
-        const currentTemp = document.querySelector("#current-temp");
-        const currentHumidity = document.querySelector("#current-humidity");
-        const currentWindSpeed = document.querySelector("#current-wind-speed");
-        const currentUVIndex = document.querySelector("#current-uv-index");
+        const currentCityContainer = document.getElementById("currentCityContainer");
+        const currentCity = document.querySelector("#currentCity");
+        const currentDate = document.querySelector("#currentDate");
+        const currentIcon = document.querySelector("#currentIcon");
+        const currentTemp = document.querySelector("#currentTemp");
+        const currentHumidity = document.querySelector("#currentHumidity");
+        const currentWindSpeed = document.querySelector("#currentWindSpeed");
+        const currentUVIndex = document.querySelector("#currentuvIndex");
 
-        currentCity.textContent = data.name;
-        currentDate.textContent = data.dt;
-        currentIcon.textContent = data.weather[0].icon;
-        currentTemp.textContent = data.main.temp;
-        currentHumidity.textContent = data.main.humidity;
-        currentWindSpeed.textContent = data.wind.speed;
-        currentUVIndex.textContent = data.main.uvi;
+
+        currentCityContainer.innerHTML = "`<h2>Current Weather Conditions in ${data.name}</h2>`";
+        currentCity.innerHTML = `${data.name}`;
+        currentDate.innerHTML = new Date().toLocaleDateString();
+        currentIcon.innerHTML = `<img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather Icon">`;
+        currentTemp.innerHTML = `Temperature: ${data.main.temp}`;
+        currentHumidity.innerHTML = `Humidity: ${data.main.humidity} %`;
+        currentWindSpeed.innerHTML = `Wind Speed: ${data.wind.speed} MPH`;
+        currentUVIndex.innerHTML = `UV Index: ${data.main.uvi}`;
 
     } catch (error) {
-        console.error("Error: ", error);
+        console.error("Error ", error);
     }
 }
+
+getWeather("Atlanta");
