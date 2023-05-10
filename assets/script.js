@@ -12,46 +12,47 @@
 
 // Open Weather API Key and Global Variables
 const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
-const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + openWeatherAPI;
 
-var city = "";
-var cityList = [];
+
+
+// const city = document.getElementById("city");
+// const cityList = document.getElementById("cityList");
+// const today = moment().format
 
 
 // Function to get and display current weather conditions for a city
 
-async function getWeather(city) {
-    const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
-    const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + openWeatherAPI;
-
-    try {
-        const response = await fetch(queryURL);
-        const data = await response.json();
-
-
-        // display current weather conditions in the DOM 
+function getCurrentWeather(city) {
+    const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${openWeatherAPI}`;
+    
+    fetch(queryURL)
+    .then(function(response) {
+        if (!response.ok) {
+            throw response.json();
+        }
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
         const currentCityContainer = document.getElementById("currentCityContainer");
-        const currentCity = document.querySelector("#currentCity");
-        const currentDate = document.querySelector("#currentDate");
-        const currentIcon = document.querySelector("#currentIcon");
-        const currentTemp = document.querySelector("#currentTemp");
-        const currentHumidity = document.querySelector("#currentHumidity");
-        const currentWindSpeed = document.querySelector("#currentWindSpeed");
-        const currentUVIndex = document.querySelector("#currentuvIndex");
-
-
-        currentCityContainer.innerHTML = "`<h2>Current Weather Conditions in ${data.name}</h2>`";
-        currentCity.innerHTML = `${data.name}`;
-        currentDate.innerHTML = new Date().toLocaleDateString();
+        currentCityContainer.innerHTML = '<h2>Current Weather Conditions in ${data.name} </h2>';
+        const currentDate = document.querySelector(".currentDate");
+        const date = new Date();
+        currentDate.innerText = date.toLocaleDateString();
+        const currentIcon = document.querySelector(".currentIcon");
         currentIcon.innerHTML = `<img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather Icon">`;
-        currentTemp.innerHTML = `Temperature: ${data.main.temp}`;
-        currentHumidity.innerHTML = `Humidity: ${data.main.humidity} %`;
-        currentWindSpeed.innerHTML = `Wind Speed: ${data.wind.speed} MPH`;
-        currentUVIndex.innerHTML = `UV Index: ${data.main.uvi}`;
+        const currentTemp = document.querySelector(".currentTemp");
+        currentTemp.innerHTML = `Temperature: ${data.main.temp} &#8451;`;
+        const currentHumidity = document.querySelector(".currentHumidity");
+        currentHumidity.innerText = `Humidity: ${data.main.humidity} %`;
+        const currentWindSpeed = document.querySelector(".currentWindSpeed");
+        currentWindSpeed.innerText = `Wind Speed: ${data.wind.speed} MPH`;
 
-    } catch (error) {
+    })
+    .catch(function(error) {
         console.error("Error ", error);
-    }
+    });
 }
+    
+getCurrentWeather("Atlanta");
 
-getWeather("Atlanta");
