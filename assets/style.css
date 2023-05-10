@@ -57,7 +57,8 @@
 .dayFourContainer,
 .dayFiveContainer {
     background-color: black;
-    width: 15%
+    width: 15%;
+    color: pink;
 }
 
 .forecast {
