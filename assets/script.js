@@ -18,6 +18,44 @@ const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
 // const today = moment().format
 
 
+// function to get user input and display in search history
+
+function addSearchHistory() {
+    const input = document.getElementById("cityInput");
+    const cityName = input.value;
+    if (cityName !=='') {
+        const cityList = document.querySelector(".cityList");
+        const listItem = document.createElement("li");
+        listItem.textContent = cityName;
+        cityList.appendChild(listItem);
+        input.value = '';
+
+        // call get weather and forecast functions
+        getCurrentWeather(cityName);
+        getFiveDayForecast(cityName);
+
+        // return to stop function and display weather
+        return;
+
+    } else {
+        alert("Please enter a city name.");
+    }
+
+}
+
+// add event listener to search button
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", addSearchHistory);
+
+// add event listener to search history list items
+const cityList = document.querySelector(".cityList");
+cityList.addEventListener("click", function(event) {
+    const city = event.target.textContent;
+    getCurrentWeather(city);
+    getFiveDayForecast(city);
+}
+);
+
 // Function to get and display current weather conditions for a city
 
 function getCurrentWeather(city) {
@@ -40,7 +78,7 @@ function getCurrentWeather(city) {
         const currentIcon = document.querySelector(".currentIcon");
         currentIcon.innerHTML = `<img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather Icon">`;
         const currentTemp = document.querySelector(".currentTemp");
-        currentTemp.innerHTML = `Temperature: ${data.main.temp} &#8457;`;
+        currentTemp.innerHTML = `Temperature: ${data.main.temp * 1.8 + 32} &#8457;`;
         const currentHumidity = document.querySelector(".currentHumidity");
         currentHumidity.innerText = `Humidity: ${data.main.humidity} %`;
         const currentWindSpeed = document.querySelector(".currentWindSpeed");
@@ -50,9 +88,11 @@ function getCurrentWeather(city) {
     .catch(function(error) {
         console.error("Error ", error);
     });
+
+    getCurrentWeather(city);
 }
 
-getCurrentWeather("Atlanta");
+
 
 
 
@@ -74,7 +114,7 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&a
             // get date, icon, temp, humidity, and wind speed for forecast
             const date = new Date(forecast.dt_txt).toLocaleDateString();
             const icon = forecast.weather[0].icon;
-            const temp = forecast.main.temp;
+            const temp = forecast.main.temp * 1.8 + 32; // convert to F
             const humidity = forecast.main.humidity;
             const windSpeed = forecast.wind.speed;
 
@@ -83,15 +123,19 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&a
             console.log(dayContainer)
             dayContainer.querySelector(".day").textContent = date;
             dayContainer.querySelector(".icon").innerHTML = `<img src="https://openweathermap.org/img/w/${icon}.png" alt="Weather Icon">`;
-            dayContainer.querySelector(".temp").textContent = `Temp: ${temp} &#8457;`;
+            dayContainer.querySelector(".temp").textContent = `Temperature: ${temp} F`;
             dayContainer.querySelector(".humidity").textContent = `Humidity: ${humidity} %`;
             dayContainer.querySelector(".windSpeed").textContent = `Wind Speed: ${windSpeed} MPH`;
         }
+        console.log(`Showing weather for 5 days in ${city}.`);
     })
     .catch(error => console.error(error));
+
+    getFiveDayForecast(city);
 }
 
-getFiveDayForecast("Atlanta");
 
 
-  
+
+
+

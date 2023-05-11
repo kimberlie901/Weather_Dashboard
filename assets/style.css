@@ -51,14 +51,15 @@
     background-color: black;
 }
 
-.dayOneContainer, 
-.dayTwoContainer,
-.dayThreeContainer,
-.dayFourContainer,
-.dayFiveContainer {
+.day1Container, 
+.day2Container,
+.day3Container,
+.day4Container,
+.day5Container {
     background-color: black;
     width: 15%;
     color: pink;
+    text-align: center;
 }
 
 .forecast {
