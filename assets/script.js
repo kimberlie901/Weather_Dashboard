@@ -35,14 +35,14 @@ function getCurrentWeather(city) {
     .then(function(data) {
         console.log(data);
         const currentCityContainer = document.getElementById("currentCityContainer");
-        currentCityContainer.innerHTML = '<h2>Current Weather Conditions in ${data.name} </h2>';
+        currentCityContainer.innerHTML = `<h2>Current Weather Conditions in ${data.name} </h2>`;
         const currentDate = document.querySelector(".currentDate");
         const date = new Date();
         currentDate.innerText = date.toLocaleDateString();
         const currentIcon = document.querySelector(".currentIcon");
         currentIcon.innerHTML = `<img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather Icon">`;
         const currentTemp = document.querySelector(".currentTemp");
-        currentTemp.innerHTML = `Temperature: ${data.main.temp} &#8451;`;
+        currentTemp.innerHTML = `Temperature: ${data.main.temp} &#8457;`;
         const currentHumidity = document.querySelector(".currentHumidity");
         currentHumidity.innerText = `Humidity: ${data.main.humidity} %`;
         const currentWindSpeed = document.querySelector(".currentWindSpeed");
@@ -53,6 +53,9 @@ function getCurrentWeather(city) {
         console.error("Error ", error);
     });
 }
-    
+
 getCurrentWeather("Atlanta");
 
+
+
+// Function to get and display 5-day forecast for a city
