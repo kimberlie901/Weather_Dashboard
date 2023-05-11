@@ -12,11 +12,9 @@
 
 // Open Weather API Key and Global Variables
 const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
+// const city = ""
 
-
-
-// const city = document.getElementById("city");
-// const cityList = document.getElementById("cityList");
+// const cityList = ""
 // const today = moment().format
 
 
@@ -59,3 +57,41 @@ getCurrentWeather("Atlanta");
 
 
 // Function to get and display 5-day forecast for a city
+
+function getFiveDayForecast(city) {
+
+fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${openWeatherAPI}`)
+    .then(response => response.json())
+    .then(data => {
+        // 5 day forecast array 
+        const forecastData = data.list;
+        let count = 0;
+        for (let i = 0; i < forecastData.length; i += 8) {
+            count ++;
+            const forecast = forecastData[i];
+            console.log(forecast);
+
+            // get date, icon, temp, humidity, and wind speed for forecast
+            const date = new Date(forecast.dt_txt).toLocaleDateString();
+            const icon = forecast.weather[0].icon;
+            const temp = forecast.main.temp;
+            const humidity = forecast.main.humidity;
+            const windSpeed = forecast.wind.speed;
+
+            // create forecast card
+            const dayContainer = document.querySelector(`.day${count}Container`);
+            console.log(dayContainer)
+            dayContainer.querySelector(".day").textContent = date;
+            dayContainer.querySelector(".icon").innerHTML = `<img src="https://openweathermap.org/img/w/${icon}.png" alt="Weather Icon">`;
+            dayContainer.querySelector(".temp").textContent = `Temp: ${temp} &#8457;`;
+            dayContainer.querySelector(".humidity").textContent = `Humidity: ${humidity} %`;
+            dayContainer.querySelector(".windSpeed").textContent = `Wind Speed: ${windSpeed} MPH`;
+        }
+    })
+    .catch(error => console.error(error));
+}
+
+getFiveDayForecast("Atlanta");
+
+
+  
