@@ -11,7 +11,7 @@
 
 
 // Open Weather API Key and Global Variables
-const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
+const openWeatherAPI = "2300b822c2863920b9a1c1deeb309f56";
 // const city = ""
 
 // const cityList = ""
@@ -20,7 +20,8 @@ const openWeatherAPI = "1ab5f2f9b804a41b09f07af563b6fb1b";
 
 // function to get user input and display in search history
 
-function addSearchHistory() {
+function addSearchHistory(e) {
+    e.preventDefault();
     const input = document.getElementById("cityInput");
     const cityName = input.value;
     if (cityName !=='') {
@@ -88,8 +89,6 @@ function getCurrentWeather(city) {
     .catch(function(error) {
         console.error("Error ", error);
     });
-
-    getCurrentWeather(city);
 }
 
 
@@ -131,7 +130,6 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&a
     })
     .catch(error => console.error(error));
 
-    getFiveDayForecast(city);
 }
 
 
